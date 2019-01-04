@@ -9,10 +9,22 @@ var scrape = function (cb) {
 
         var articles = [];
 
-        $(".theme-summary").each(function(i, element){
+        $("article.css-8atqhb").each(function(i, element) {
+        // $(".theme-summary").each(function(i, element){
 
-            var head = $(this).children(".story-heading").text().trim();
-            var sum = $(this).children(".summary").text().trim();
+            // var head = $(this).children(".story-heading").text().trim();
+        
+        var head = $(this)
+            .find("h2")
+            .text()
+            .trim();
+
+            // var sum = $(this).children(".summary").text().trim();
+    
+        var sum = $(this)
+            .find("p")
+            .text()
+            .trim();
 
             if(head && sum){
                 var headNeat = head.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
